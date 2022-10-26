@@ -28,7 +28,7 @@ public class DelegacionController {
     //public ResponseEntity<String> obtenerVistaDeTodas(@RequestParam("sesion") String idSesion) throws IOException {
     public ResponseEntity<String> obtenerVistaDeTodasDelegaciones() throws IOException {
         //validar accion en capa modelo según roles o usuario asociados al idSesion
-        Template template = handlebars.compile("/templates/Plantillas/listadelegaciones");
+        Template template = handlebars.compile("/templates/listadelegaciones");
         List<Persona> personas = RepoPersonas.getPersonas();
 
         Map<String, Object> model = new HashMap<>();

@@ -1,0 +1,38 @@
+$color1: #457b9d; /*gris claro*/
+$color2: #dddddd; /*gris intermedio*/
+$color3: #324766; /*azul oscuro*/
+$color4: #47ae73; /*verde*/
+
+.color1 {
+  color: $color1;
+}
+
+.color2 {
+  color: $color2;
+}
+
+.color3 {
+  color: $color3;
+}
+
+.color4 {
+  color: $color4;
+}
+
+.bg-color1 {
+  background-color: $color1;
+}
+
+.bg-color2 {
+  background-color: $color2;
+}
+
+.bg-color3 {
+  background-color: $color3;
+}
+
+.bg-color4 {
+  background-color: $color4;
+}
+
+.nav{background-color: #e3f2fd;}

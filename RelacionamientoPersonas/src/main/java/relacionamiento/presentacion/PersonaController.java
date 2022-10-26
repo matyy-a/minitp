@@ -36,8 +36,8 @@ public class PersonaController {
  //public ResponseEntity<String> obtenerVistaDeTodas(@RequestParam("sesion") String idSesion) throws IOException {
  public ResponseEntity<String> obtenerVistaDeTodas() throws IOException {
   //validar accion en capa modelo según roles o usuario asociados al idSesion
-  Template template = handlebars.compile("/templates/Plantillas/listapersonas");
-  List<Persona> personas = RepoPersonas.getPersonas();
+  Template template = handlebars.compile("/templates/listapersonas");
+  List<Persona> personas = RepoPersonas.obtenerTodas();
 
   Map<String, Object> model = new HashMap<>();
   model.put("listapersonas", personas);
