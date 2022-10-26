@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RelacionamientoPersonas/RelacionamientoPersonas.iml" filepath="$PROJECT_DIR$/RelacionamientoPersonas/RelacionamientoPersonas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RelacionamientoPersonas/Relacionamiento-de-Personas.iml" filepath="$PROJECT_DIR$/RelacionamientoPersonas/Relacionamiento-de-Personas.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/minitp.iml" filepath="$PROJECT_DIR$/.idea/minitp.iml" />
     </modules>
   </component>
