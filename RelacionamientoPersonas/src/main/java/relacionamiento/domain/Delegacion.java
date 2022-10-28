@@ -4,17 +4,21 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "delegacion")
+//@Table(name = "delegacion")
 public class Delegacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    //@JoinColumn(name = "persona_id")
+    //@Column(insertable=false, updatable=false)
     private Persona autorizante;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    //@JoinColumn(name = "persona_id")
+    //@Column(insertable=false, updatable=false)
     private Persona autorizado;
 
     @Enumerated(EnumType.STRING)
@@ -26,8 +30,8 @@ public class Delegacion {
     private LocalDate fechaAceptacion;
 
     public Delegacion(Persona autorizante, Persona autorizado, Estado estado, LocalDate fechaAutorizacion, LocalDate fechaAceptacion) {
-        this.autorizante = autorizante;
-        this.autorizado = autorizado;
+        //this.autorizante = autorizante;
+        //this.autorizado = autorizado;
         this.estado = estado;
         this.fechaAutorizacion = fechaAutorizacion;
         this.fechaAceptacion = fechaAceptacion;
@@ -36,7 +40,7 @@ public class Delegacion {
     public Delegacion() {
 
     }
-
+/*
     public Persona getAutorizante() {
         return autorizante;
     }
@@ -52,7 +56,7 @@ public class Delegacion {
     public void setAutorizado(Persona autorizado) {
         this.autorizado = autorizado;
     }
-
+*/
     public Estado getEstado() {
         return estado;
     }
@@ -79,5 +83,13 @@ public class Delegacion {
 
     public void autorizarPersona(Persona persona){
         //TODO
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

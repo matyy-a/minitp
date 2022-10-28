@@ -25,7 +25,7 @@ public class DelegacionController {
     private final Handlebars handlebars = new Handlebars();
     @Autowired
     private RepoPersonas repoPersonas;
-
+/*
     @GetMapping(value = "/delegaciones", produces = MediaType.TEXT_HTML_VALUE) //-> importante en Spring
     public ResponseEntity<String> obtenerVistaDeTodas(@RequestParam("sesion") String idSesion) throws IOException {
         Map<String, Object> atributosSesion = SesionManager.get().obtenerAtributos(idSesion);
@@ -55,20 +55,20 @@ public class DelegacionController {
 
     }
 
-    /*
+
     private final Handlebars handlebars;
 
     public DelegacionController() {
         this.handlebars = new Handlebars();
 
     }
-
+*/
     @GetMapping(value = "/delegaciones", produces = MediaType.TEXT_HTML_VALUE) //-> importante en Spring
     //public ResponseEntity<String> obtenerVistaDeTodas(@RequestParam("sesion") String idSesion) throws IOException {
     public ResponseEntity<String> obtenerVistaDeTodasDelegaciones() throws IOException {
         //validar accion en capa modelo según roles o usuario asociados al idSesion
         Template template = handlebars.compile("/templates/DelegacionesRegistradas");
-        List<Persona> personas = RepoPersonas.getPersonas();
+        Iterable<Persona> personas = repoPersonas.findAll();
 
         Map<String, Object> model = new HashMap<>();
         model.put("DelegacionesRegistradas", personas);
@@ -77,5 +77,5 @@ public class DelegacionController {
 
         return ResponseEntity.status(200).body(html);
 
-    }*/
+    }
 }
