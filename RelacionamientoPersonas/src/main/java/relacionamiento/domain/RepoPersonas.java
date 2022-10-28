@@ -32,4 +32,8 @@ public class RepoPersonas {
     public static List<Persona> getPersonas() {
         return personas;
     }
+
+    public void agregarPersonaRegistrada(Persona persona) {
+        personas.add(persona);
+    }
 }

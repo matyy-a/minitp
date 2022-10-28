@@ -34,5 +34,11 @@ public class RepoPersonaJson {
       personasJson.add(new PersonaJson(dni, nombre, apellido));
 
     }
+
+  }
+  public boolean personaEstaHabilitada(Persona p) {
+    return personasJson
+            .stream()
+            .anyMatch(pj -> pj.getNombre() == p.getNombre() && pj.getApellido()== p.getApellido() && pj.getDni() == p.getDni());
   }
 }
