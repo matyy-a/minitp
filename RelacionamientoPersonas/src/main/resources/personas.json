@@ -1,0 +1,29 @@
+{
+  "data":[
+    {
+      "Nombre": "Ignacio",
+      "Apellido": "askjsa",
+      "DNI": "11111111"
+    },
+    {
+      "Nombre": "Mercedes",
+      "Apellido": "askjsa",
+      "DNI": "22222222"
+    },
+    {
+      "Nombre": "Rodrigo",
+      "Apellido": "askjsa",
+      "DNI": "33333333"
+    },
+    {
+      "Nombre": "Camila",
+      "Apellido": "askjsa",
+      "DNI": "44444444"
+    },
+    {
+      "Nombre": "Matias",
+      "Apellido": "askjsa",
+      "DNI": "77777777"
+    }
+  ]
+}

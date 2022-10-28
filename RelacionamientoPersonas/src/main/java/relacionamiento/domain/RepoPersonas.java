@@ -11,4 +11,14 @@ import static java.util.Arrays.asList;
 public interface RepoPersonas extends CrudRepository<Persona, Long> {
     Persona findByUserAndPassword(String user,String password);
 
+
+   /* public static List<Persona> getPersonas() {
+        return personas;
+    }
+    }
+
+    public void agregarPersonaRegistrada(Persona persona) {
+        personas.add(persona);
+    }*/
+
 }
