@@ -7,7 +7,7 @@ public class PersonaJson {
     private String dni;
     private String nombre;
     private String apellido;
-
+/*
     Gson gson = new GsonBuilder()
             .setLenient()
             .create();
@@ -57,4 +57,6 @@ public class PersonaJson {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
+ */
 }

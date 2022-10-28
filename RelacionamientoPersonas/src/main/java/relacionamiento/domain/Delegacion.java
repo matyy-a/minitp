@@ -8,24 +8,21 @@ import java.time.LocalDate;
 public class Delegacion {
 
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "autorizante_id")
     private Persona autorizante;
 
     @ManyToOne
-    @JoinColumn(name = "autorizado_id")
     private Persona autorizado;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "estado")
+    @Column(insertable=false, updatable=false)
     private Estado estado;
 
-    @Column
     private LocalDate fechaAutorizacion;
 
-    @Column
     private LocalDate fechaAceptacion;
 
     public Delegacion(Persona autorizante, Persona autorizado, Estado estado, LocalDate fechaAutorizacion, LocalDate fechaAceptacion) {

@@ -1,35 +1,14 @@
 package relacionamiento.domain;
 
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 import static java.util.Arrays.asList;
 
-public class RepoPersonas {
-    private static List<Persona> personas;
+@Repository
+public interface RepoPersonas extends CrudRepository<Persona, Long> {
+    Persona findByUserAndPassword(String user,String password);
 
-    private static final RepoPersonas INSTANCE = new RepoPersonas();
-
-    public static RepoPersonas getInstance() {
-        return INSTANCE;
-    }
-
-    public static List<Persona> obtenerTodas(){
-        Persona juan = new Persona();
-        juan.setNombre("Juan");
-        juan.setApellido("Gomez");
-        juan.setDni("11222333");
-        Persona carlos = new Persona();
-        carlos.setNombre("Carlos");
-        carlos.setApellido("Gomez");
-        carlos.setDni("22333444");
-        return asList(juan, carlos);
-    }
-
-    public Persona findByDniAndNombreCompleto(Persona persona){
-        return personas.stream().filter(p -> p.getDni().equals(persona.getDni())).findFirst().get();
-    }
-
-    public static List<Persona> getPersonas() {
-        return personas;
-    }
 }

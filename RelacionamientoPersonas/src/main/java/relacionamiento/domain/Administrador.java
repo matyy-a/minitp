@@ -1,6 +1,9 @@
 package relacionamiento.domain;
 
-public class Administrador extends Usuario {
+import javax.persistence.Entity;
+
+
+public class Administrador {
 /*
     public List<Persona> generarReportesPersonas(){
         //TODO

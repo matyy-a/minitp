@@ -17,7 +17,7 @@ import java.util.Map;
 
 @Controller
 public class PersonaController {
-
+/*
  // private final RepoPersonas repoPersonas;
   private final Handlebars handlebars;
  public PersonaController() {
@@ -46,5 +46,5 @@ public class PersonaController {
 
   return ResponseEntity.status(200).body(html);
 
- }
+ }*/
 }

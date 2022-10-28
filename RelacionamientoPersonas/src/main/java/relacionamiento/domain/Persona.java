@@ -6,44 +6,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "persona")
+@DiscriminatorValue("1")
 public class Persona extends Usuario {
 
-    @Id
-    private int numero;
-
-    @Column
     private String nombre;
 
-    @Column
     private String apellido;
 
-    @Transient
     private String dni;
 
-    @Column
     private LocalDate nacimiento;
 
-    @Column
     private String localidadResidencia;
 
-    @Column
     private String foto;
 
-    @Column
     private String ciudad;
 
-    @OneToMany(mappedBy = "autorizante", cascade = CascadeType.ALL)
-    private List<Delegacion> delegacionesAAceptarMias;
+    @OneToMany
+    @JoinColumn(name = "miembro1_id")
+    private List<Delegacion> delegacionesAAceptarMias=new ArrayList<>();;
+    //
+    @OneToMany
+    @JoinColumn(name = "miembro2_id")
+    private List<Delegacion> delegacionesAprobadasMias=new ArrayList<>();;
 
-    @OneToMany(mappedBy = "autorizante", cascade = CascadeType.ALL)
-    private List<Delegacion> delegacionesAprobadasMias;
+    @OneToMany
+    @JoinColumn(name = "miembro3_id")
+    private List<Delegacion> delegacionesAAceptarDeOtros=new ArrayList<>();;
 
-    @OneToMany(mappedBy = "autorizado", cascade = CascadeType.ALL)
-    private List<Delegacion> delegacionesAAceptarDeOtros;
+    @OneToMany
+    @JoinColumn(name = "miembro4_id")
+    private List<Delegacion> delegacionesAprobadasDeOtros=new ArrayList<>();
 
-    @OneToMany(mappedBy = "autorizado", cascade = CascadeType.ALL)
-    private List<Delegacion> delegacionesAprobadasDeOtros;
 
     public Persona(String nombre, String apellido, String dni, LocalDate nacimiento, String localidadResidencia, String foto, String ciudad, List<Delegacion> delegacionesAAceptarMias, List<Delegacion> delegacionesAprobadasMias, List<Delegacion> delegacionesAAceptarDeOtros, List<Delegacion> delegacionesAprobadasDeOtros) {
         this.nombre = nombre;
@@ -60,10 +55,6 @@ public class Persona extends Usuario {
     }
 
     public Persona() {
-        this.delegacionesAAceptarMias = new ArrayList<>();
-        this.delegacionesAprobadasMias = new ArrayList<>();
-        this.delegacionesAAceptarDeOtros = new ArrayList<>();
-        this.delegacionesAprobadasDeOtros = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -136,6 +127,21 @@ public class Persona extends Usuario {
 
     public List<Delegacion> getDelegacionesAprobadasDeOtros() {
         return delegacionesAprobadasDeOtros;
+    }
+
+
+
+    public void agregarDelegacionesAAceptarMias(Delegacion delegacion){
+        delegacionesAprobadasMias.add(delegacion);
+    }
+    public void agregarDelegacionesAprobadasMias(Delegacion delegacion){
+        delegacionesAprobadasMias.add(delegacion);
+    }
+    public void agregarDelegacionesAAceptarDeOtros(Delegacion delegacion){
+        delegacionesAprobadasDeOtros.add(delegacion);
+    }
+    public void agregarDelegacionesAprobadasDeOtros(Delegacion delegacion){
+        delegacionesAprobadasDeOtros.add(delegacion);
     }
 
     public void aceptarAutorizacion(Delegacion delegacion){
