@@ -25,7 +25,7 @@ public class DelegacionController {
     private final Handlebars handlebars = new Handlebars();
     @Autowired
     private RepoPersonas repoPersonas;
-/*
+
     @GetMapping(value = "/delegaciones", produces = MediaType.TEXT_HTML_VALUE) //-> importante en Spring
     public ResponseEntity<String> obtenerVistaDeTodas(@RequestParam("sesion") String idSesion) throws IOException {
         Map<String, Object> atributosSesion = SesionManager.get().obtenerAtributos(idSesion);
@@ -43,18 +43,18 @@ public class DelegacionController {
 
         Map<String, Object> model = new HashMap<>();
         List<Delegacion> delegaciones = new ArrayList<>();
-        delegaciones.addAll(personaSesion.getDelegacionesAAceptarDeOtros());
-        delegaciones.addAll(personaSesion.getDelegacionesAAceptarMias());
-        delegaciones.addAll(personaSesion.getDelegacionesAprobadasDeOtros());
-        delegaciones.addAll(personaSesion.getDelegacionesAprobadasMias());
+        //TODO: ver por qué si esto se agrega se rompe toda la pagina
+        //delegaciones.addAll(personaSesion.getDelegacionesAAceptarDeOtros());
+        //delegaciones.addAll(personaSesion.getDelegacionesAAceptarMias());
+        //delegaciones.addAll(personaSesion.getDelegacionesAprobadasDeOtros());
+        //delegaciones.addAll(personaSesion.getDelegacionesAprobadasMias());
         model.put("DelegacionesRegistradas", delegaciones);
 
         String html = template.apply(model);
 
         return ResponseEntity.status(200).body(html);
-
     }
-
+/*
 
     private final Handlebars handlebars;
 
@@ -62,7 +62,7 @@ public class DelegacionController {
         this.handlebars = new Handlebars();
 
     }
-*/
+
     @GetMapping(value = "/delegaciones", produces = MediaType.TEXT_HTML_VALUE) //-> importante en Spring
     //public ResponseEntity<String> obtenerVistaDeTodas(@RequestParam("sesion") String idSesion) throws IOException {
     public ResponseEntity<String> obtenerVistaDeTodasDelegaciones() throws IOException {
@@ -78,4 +78,6 @@ public class DelegacionController {
         return ResponseEntity.status(200).body(html);
 
     }
+
+ */
 }

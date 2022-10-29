@@ -37,6 +37,10 @@ public class SesionManager {
         return id;
     }
 
+    public Boolean estaLogeado(String idSesion) {
+        return this.sesiones.containsKey(idSesion);
+    }
+
     public Map<String, Object> obtenerAtributos(String id) {
         return this.sesiones.get(id);
     }

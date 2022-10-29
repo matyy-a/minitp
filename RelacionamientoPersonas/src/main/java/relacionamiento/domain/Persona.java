@@ -26,22 +26,22 @@ public class Persona extends Usuario {
     @OneToMany
     @JoinColumn(name = "delegacioneAceptarMias_id")
     //@Column(insertable=false, updatable=false)
-    private List<Delegacion> delegacionesAAceptarMias=new ArrayList<>();;
+    private List<Delegacion> delegacionesAAceptarMias=new ArrayList<>();
     //
     @OneToMany
     @JoinColumn(name = "delegacionAprobadasMias_id")
     //@Column(insertable=false, updatable=false)
-    private List<Delegacion> delegacionesAprobadasMias=new ArrayList<>();;
+    private List<Delegacion> delegacionesAprobadasMias=new ArrayList<>();
 
     @OneToMany
     @JoinColumn(name = "delegacionAAceptarDeOtros_id")
     //@Column(insertable=false, updatable=false)
-    private List<Delegacion> delegacionesAAceptarDeOtros=new ArrayList<>();;
+    private List<Delegacion> delegacionesAAceptarDeOtros=new ArrayList<>();
 
     @OneToMany
     @JoinColumn(name = "delegacionAprobadasDeOtros_id")
     //@Column(insertable=false, updatable=false)
-    private List<Delegacion> delegacionesAprobadasDeOtros=new ArrayList<>();
+    private List<Delegacion> delegacionesAprobadasDeOtros = new ArrayList<>();
 
 
     public Persona(String nombre, String apellido, String dni, LocalDate nacimiento, String localidadResidencia, String foto, String ciudad, List<Delegacion> delegacionesAAceptarMias, List<Delegacion> delegacionesAprobadasMias, List<Delegacion> delegacionesAAceptarDeOtros, List<Delegacion> delegacionesAprobadasDeOtros) {
