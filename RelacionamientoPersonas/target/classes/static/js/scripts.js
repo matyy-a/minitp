@@ -14,28 +14,32 @@ const cambiarUrl = (url = "/") => {
 
 document.getElementById("navActualizarDatos").addEventListener("click", (e) => {
     e.preventDefault() // Evitamos que el <form> cambie la URL
-    cambiarUrl("delegaciones")
-})
-
-document.getElementById("navActualizarDatos").addEventListener("click", (e) => {
-    e.preventDefault() // Evitamos que el <form> cambie la URL
-    cambiarUrl("delegaciones")
+    cambiarUrl("misDatos/personas")
 })
 
 document.getElementById("navNuevaDelegacion").addEventListener("click", (e) => {
     e.preventDefault() // Evitamos que el <form> cambie la URL
-    cambiarUrl("delegaciones")
+    cambiarUrl("delegaciones/nueva")
 })
+
 document.getElementById("navMisDelegacionesAceptadas").addEventListener("click", (e) => {
     e.preventDefault() // Evitamos que el <form> cambie la URL
-    cambiarUrl("delegaciones")
+    cambiarUrl("delegacionesAceptadas")
+    //delegacion -> mis delegaciones aceptadas
 })
 
 document.getElementById("navMisDelegacionesParaMi").addEventListener("click", (e) => {
     e.preventDefault() // Evitamos que el <form> cambie la URL
-    cambiarUrl("delegaciones")
+    cambiarUrl("delegacionesMias")
+    //delegacion -> mis delegaciones para mi aceptadas
 })
+
+document.getElementById("navMisDelegacionesPendientes").addEventListener("click", (e) => {
+    e.preventDefault() // Evitamos que el <form> cambie la URL
+    cambiarUrl("delegacionesPendientes")
+})
+
 document.getElementById("navMisDelegacionesParaMiPendientes").addEventListener("click", (e) => {
     e.preventDefault() // Evitamos que el <form> cambie la URL
-    cambiarUrl("delegaciones")
+    cambiarUrl("delegacionesMiasPendientes")
 })
