@@ -3,8 +3,6 @@ package relacionamiento;
 import org.json.simple.parser.ParseException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import relacionamiento.domain.PersonaJson;
-import relacionamiento.domain.RepoPersonaJson;
 
 import java.io.IOException;
 
