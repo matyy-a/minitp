@@ -72,6 +72,92 @@ public class DelegacionController {
 
         Map<String, Object> model = new HashMap<>();
 
+
+
+        String html = template.apply(model);
+
+        return ResponseEntity.status(200).body(html);
+    }
+
+    //
+    @GetMapping(value = "/delegacionesAceptadas", produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<String> mostrarDelegacionesAceptadas (@RequestParam("sesion") String idSesion) throws Exception {
+        Map<String, Object> atributosSesion = SesionManager.get().obtenerAtributos(idSesion);
+
+        Persona personaSesion = (Persona) atributosSesion.get("persona");
+        System.out.println("Obteniendo datos de: " + personaSesion);
+
+        if (personaSesion == null) {
+            return ResponseEntity.status(404).build();
+        }
+        Template template = handlebars.compile("/templates/DelegacionesRegistradas");
+
+        Map<String, Object> model = new HashMap<>();
+        //List<Delegacion> delegacionesAutorizantes = repoDelegaciones.findByAutorizante(personaSesion);
+        List<Delegacion> delegacionesAutorizadas = repoDelegaciones.findByAutorizado(personaSesion);
+        List<Delegacion> delegaciones = new ArrayList<>();
+
+        delegaciones.addAll(delegacionesAutorizadas);
+        //delegaciones.addAll(delegacionesAutorizantes);
+        model.put("DelegacionesRegistradas", delegaciones);
+
+        String html = template.apply(model);
+
+        return ResponseEntity.status(200).body(html);
+    }
+
+    @GetMapping(value = "/delegacionesMias", produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<String> mostrarDelegacionesParaMiAceptadas (@RequestParam("sesion") String idSesion) throws Exception {
+        Map<String, Object> atributosSesion = SesionManager.get().obtenerAtributos(idSesion);
+
+        Persona personaSesion = (Persona) atributosSesion.get("persona");
+        System.out.println("Obteniendo datos de: " + personaSesion);
+
+        if (personaSesion == null) {
+            return ResponseEntity.status(404).build();
+        }
+        Template template = handlebars.compile("/templates/DelegacionesRegistradas");
+
+        Map<String, Object> model = new HashMap<>();
+
+        String html = template.apply(model);
+
+        return ResponseEntity.status(200).body(html);
+    }
+
+    @GetMapping(value = "/delegacionesPendientes", produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<String> mostrarDelegacionesPendientes (@RequestParam("sesion") String idSesion) throws Exception {
+        Map<String, Object> atributosSesion = SesionManager.get().obtenerAtributos(idSesion);
+
+        Persona personaSesion = (Persona) atributosSesion.get("persona");
+        System.out.println("Obteniendo datos de: " + personaSesion);
+
+        if (personaSesion == null) {
+            return ResponseEntity.status(404).build();
+        }
+        Template template = handlebars.compile("/templates/DelegacionesRegistradas");
+
+        Map<String, Object> model = new HashMap<>();
+
+        String html = template.apply(model);
+
+        return ResponseEntity.status(200).body(html);
+    }
+
+    @GetMapping(value = "/delegacionesMiasPendientes", produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<String> mostrarDelegacionesParaMiPendientes (@RequestParam("sesion") String idSesion) throws Exception {
+        Map<String, Object> atributosSesion = SesionManager.get().obtenerAtributos(idSesion);
+
+        Persona personaSesion = (Persona) atributosSesion.get("persona");
+        System.out.println("Obteniendo datos de: " + personaSesion);
+
+        if (personaSesion == null) {
+            return ResponseEntity.status(404).build();
+        }
+        Template template = handlebars.compile("/templates/DelegacionesRegistradas");
+
+        Map<String, Object> model = new HashMap<>();
+
         String html = template.apply(model);
 
         return ResponseEntity.status(200).body(html);

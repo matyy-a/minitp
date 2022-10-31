@@ -43,7 +43,7 @@ public class PersonaController {
     return ResponseEntity.status(200).body(html);
   }
 
-  @PostMapping(value = "/misDatos/personas")
+  @PostMapping (value = "/misDatos/personas")
   @Transactional
   public ResponseEntity<String> actualizarMisDatos (@RequestParam("sesion") String idSesion, Persona persona) throws Exception{
     Map<String, Object> atributosSesion = SesionManager.get().obtenerAtributos(idSesion);
@@ -66,6 +66,7 @@ public class PersonaController {
     personaSesion.setCiudad(persona.getCiudad());
     personaSesion.setLocalidadResidencia(persona.getLocalidadResidencia());
 
+    System.out.println("Obteniendo datos de: " + personaSesion.getNacimiento());
     repoPersonas.save(personaSesion);
     String html = template.apply(model);
 
