@@ -22,7 +22,7 @@ public class Delegacion {
     private Persona autorizado;
 
     @Enumerated(EnumType.STRING)
-    @Column(insertable=false, updatable=false)
+    //@Column(insertable=false, updatable=false)
     private Estado estado;
 
     private LocalDate fechaAutorizacion;
@@ -40,7 +40,7 @@ public class Delegacion {
     public Delegacion() {
 
     }
-/*
+
     public Persona getAutorizante() {
         return autorizante;
     }
@@ -56,7 +56,7 @@ public class Delegacion {
     public void setAutorizado(Persona autorizado) {
         this.autorizado = autorizado;
     }
-*/
+
     public Estado getEstado() {
         return estado;
     }
