@@ -30,8 +30,8 @@ public class Delegacion {
     private LocalDate fechaAceptacion;
 
     public Delegacion(Persona autorizante, Persona autorizado, Estado estado, LocalDate fechaAutorizacion, LocalDate fechaAceptacion) {
-        //this.autorizante = autorizante;
-        //this.autorizado = autorizado;
+        this.autorizante = autorizante;
+        this.autorizado = autorizado;
         this.estado = estado;
         this.fechaAutorizacion = fechaAutorizacion;
         this.fechaAceptacion = fechaAceptacion;

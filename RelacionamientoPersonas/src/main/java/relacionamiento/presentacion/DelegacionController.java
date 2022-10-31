@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import relacionamiento.domain.Delegacion;
 import relacionamiento.domain.Persona;
+import relacionamiento.domain.RepoDelegaciones;
 import relacionamiento.domain.RepoPersonas;
 
 import java.io.IOException;
@@ -25,6 +26,8 @@ public class DelegacionController {
     private final Handlebars handlebars = new Handlebars();
     @Autowired
     private RepoPersonas repoPersonas;
+    @Autowired
+    private RepoDelegaciones repoDelegaciones;
 
     @GetMapping(value = "/delegaciones", produces = MediaType.TEXT_HTML_VALUE) //-> importante en Spring
     public ResponseEntity<String> obtenerVistaDeTodas(@RequestParam("sesion") String idSesion) throws IOException {
@@ -42,12 +45,16 @@ public class DelegacionController {
         Template template = handlebars.compile("/templates/DelegacionesRegistradas");
 
         Map<String, Object> model = new HashMap<>();
+        List<Delegacion> delegacionesAutorizantes = repoDelegaciones.findByAutorizante(personaSesion);
+        List<Delegacion> delegacionesAutorizadas = repoDelegaciones.findByAutorizado(personaSesion);
         List<Delegacion> delegaciones = new ArrayList<>();
         //TODO: ver por qué si esto se agrega se rompe toda la pagina
         //delegaciones.addAll(personaSesion.getDelegacionesAAceptarDeOtros());
         //delegaciones.addAll(personaSesion.getDelegacionesAAceptarMias());
         //delegaciones.addAll(personaSesion.getDelegacionesAprobadasDeOtros());
         //delegaciones.addAll(personaSesion.getDelegacionesAprobadasMias());
+        delegaciones.addAll(delegacionesAutorizadas);
+        delegaciones.addAll(delegacionesAutorizantes);
         model.put("DelegacionesRegistradas", delegaciones);
 
         String html = template.apply(model);

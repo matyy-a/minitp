@@ -22,6 +22,8 @@ public class InitData implements CommandLineRunner {
             Persona juan = new Persona();
             juan.setNombre("Juan");
             juan.setApellido("Gomez");
+            juan.setUser("juan");
+            juan.setPassword("1234");
             juan.setDni("11222333");
             Persona carlos = new Persona();
             carlos.setNombre("Carlos");
@@ -35,6 +37,8 @@ public class InitData implements CommandLineRunner {
             juli.setNombre("juli");
             juli.setApellido("Amadeo");
             juli.setDni("45670978");
+            juli.setUser("juli");
+            juli.setPassword("1234");
             Delegacion delegacion1 = new Delegacion(juli, mati, Estado.ACTIVADO, LocalDate.now(), LocalDate.now());
             Delegacion delegacion2 = new Delegacion(mati, null, Estado.EN_ESPERA, LocalDate.now(), null);
             repoDelegaciones.saveAll(asList(delegacion1,delegacion2));
@@ -44,8 +48,7 @@ public class InitData implements CommandLineRunner {
             mati.agregarDelegacionesAprobadasDeOtros(delegacion1);
             mati.agregarDelegacionesAAceptarMias(delegacion2);
 
-            repoPersonas.saveAll(asList(mati, carlos));
-            repoPersonas.saveAll(asList(mati, carlos));
+            repoPersonas.saveAll(asList(mati, carlos, juan,juli));
 
         }
     }
